@@ -8,39 +8,48 @@ public class AralikArasibolenlerToplami {
 
 	public static void main(String[] args) {
 
-		int bolenToplam = 0;
+		double bolenToplam = 0;
 		int baslangic = baslangicBelirle();
 		int bitis = bitisBelirle();
-
-		// başlangıç değerinin itiş değerine eşit olma durumu
+		int bolen =1;
+				
+		// başlangıç değerinin bitiş değerine eşit olma durumu
 		if (baslangic == bitis) {
 			System.out.println("Başlangış değeri ile bitiş değeri birbirine eşit. Lütfen tekrar deneyin.");
 			baslangic = baslangicBelirle();
 			bitis = bitisBelirle();
-		} 
+		}
 
-			// başlangıcın bitişten büyük olma durumu
-			if (baslangic > bitis) {
-				int d;
-				d = baslangic;
-				baslangic = bitis;
-				bitis = d;
-			}
+		// başlangıcın bitişten büyük olma durumu
+		if (baslangic > bitis) {
+			int d;
+			d = baslangic;
+			baslangic = bitis;
+			bitis = d;
+		}
 
+		while(1==1) {
 			System.out.print("Bölen sayıyı giriniz:");
-			int bolen = sc.nextInt();
-
-			for (int i = baslangic; i <= bitis; i++) {
-				if (i % bolen == 0) {
-					System.out.println(i);
-					bolenToplam += i;
-				}
-			}
-
-			System.out.println(baslangic + " ile " + bitis + " arasındaki sayılardan " + bolen
-					+ "'e tam bölünenlerin toplamı: " + bolenToplam);
-
+			bolen= sc.nextInt();
+			if(bolen>bitis)
+				System.out.println("Aralığın bitiş değerinden büyük bir değer girdiniz.");
+			else break;
+		}
 		
+
+//		System.out.println("\n" + bolen + " sayısına tam bölünen sayılar:");
+//		double basla=System.currentTimeMillis();
+		for (int i = baslangic; i <= bitis; i++) {
+			if (i % bolen == 0) {
+//				System.out.println(i);
+				bolenToplam += i;
+			}
+		}
+//		double bitir=System.currentTimeMillis();
+		System.out.println(baslangic + " ile " + bitis + " arasındaki sayılardan " + bolen
+				+ "'e tam bölünenlerin toplamı " + bolenToplam + " olur.");
+
+//		System.out.println("Geçen süre: "+(bitir-basla)+" ms");
 	}
 
 	public static int baslangicBelirle() {
